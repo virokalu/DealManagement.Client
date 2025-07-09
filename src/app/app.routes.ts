@@ -13,7 +13,7 @@ export const routes: Routes = [
     { path: 'deal/:slug/view', component: ViewComponent },
     { path: 'deal/create', component: CreateComponent },
     { path: 'deal/:slug/edit', component: EditComponent },
-    { path: 'hotel/create', component: CreateHotelComponent },
-    { path: 'hotel/edit', component: EditHotelComponent },
+    { path: 'hotel/:slug/create', component: CreateHotelComponent },
+    { path: 'hotel/:id/edit', component: EditHotelComponent },
     { path: '**', redirectTo: '' }
 ];

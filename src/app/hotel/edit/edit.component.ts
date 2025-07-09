@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './edit.component.css'
 })
 export class EditHotelComponent {
-
+  
 }

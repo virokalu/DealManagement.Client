@@ -1,4 +1,4 @@
-import { Hotel } from "./hotel";
+import { Hotel } from "../hotel/hotel";
 
 export interface Deal {
     slug: string;

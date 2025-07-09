@@ -45,7 +45,7 @@ export class CreateComponent {
   newHotel(): FormGroup {
     return new FormGroup({
       name: new FormControl('', Validators.required),
-      rate: new FormControl('', [Validators.required, Validators.min(0)]),
+      rate: new FormControl('', [Validators.required, Validators.min(1.0), Validators.max(5.0)]),
       amenities: new FormControl(''),
       dealSlug: new FormControl('')
     });
