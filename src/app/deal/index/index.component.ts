@@ -34,10 +34,17 @@ export class IndexComponent implements OnInit {
           return EMPTY;
         }
       )
-    )
-      .subscribe({
+    ).pipe(
+      catchError(
+        error => {
+          console.log(error);
+          var errors = this.errorHandler.extractErrors(error);
+          this.notification.showError(errors)
+          return EMPTY;
+        }
+      )
+    ).subscribe({
         next: (data) => this.deals = data,
-        error: (err) => console.error('Error loading deals:', err)
       })
   }
 

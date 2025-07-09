@@ -19,8 +19,7 @@
 
         <div class="form-group">
             <label for="body">Name</label>
-            <textarea formControlName="name" id="name" type="text" class="form-control">
-            </textarea>
+            <input formControlName="name" id="name" type="text" class="form-control">
             <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
                 <div *ngIf="f['name'].errors && f['name'].errors['required']">
                     Name is required.
@@ -30,8 +29,7 @@
 
         <div class="form-group">
             <label for="video">Video</label>
-            <textarea formControlName="video" id="video" type="text" class="form-control">
-            </textarea>
+            <input formControlName="video" id="video" type="text" class="form-control">
             <div *ngIf="f['video'].touched && f['video'].invalid" class="alert alert-danger">
                 <div *ngIf="f['video'].errors">
                     Add a video link.
