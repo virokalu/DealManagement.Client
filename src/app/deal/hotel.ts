@@ -1,6 +1,6 @@
 export interface Hotel {
     id: number,
     name: string,
-    rete: number,
+    rate: number,
     amentites: string
 }

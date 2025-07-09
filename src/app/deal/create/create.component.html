@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Create New Deal</h1>
 
-    <a href="#" [routerLink]="['/deal/','index']" class="btn btn-primary">Back</a>
+    <a href="#" [routerLink]="['/deal/','index']" class="btn btn-primary"><i class="bi bi-caret-left"></i> Back</a>
 
     <form [formGroup]="form" (ngSubmit)="submit()">
 
@@ -52,13 +52,13 @@
 
                 <button class="btn btn-danger btn-sm mt-2" (click)="removeHotel(i)" type="button"
                     *ngIf="hotels.length > 1">
-                    Remove Hotel
+                    <i class="bi bi-trash"></i>
                 </button>
             </div>
 
-            <button type="button" class="btn btn-secondary mt-2" (click)="addHotel()">Add Another Hotel</button>
+            <button type="button" class="btn btn-secondary mt-2" (click)="addHotel()">Add Hotel <i class="bi bi-plus"></i></button>
         </div>
 
-        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit <i class="bi bi-send"></i></button>
     </form>
 </div>

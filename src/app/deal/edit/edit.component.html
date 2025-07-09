@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Update Deal</h1>
    
-    <a href="#" [routerLink]="['/deal/','index']" class="btn btn-primary">Back</a>
+    <a href="#" [routerLink]="['/deal/','index']" class="btn btn-primary"><i class="bi bi-caret-left"></i> Back</a>
           
     <form [formGroup]="form" (ngSubmit)="submit()">
     
@@ -35,6 +35,6 @@
             </div>
         </div>
          
-        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update <i class="bi bi-gear"></i></button>
     </form>
 </div>

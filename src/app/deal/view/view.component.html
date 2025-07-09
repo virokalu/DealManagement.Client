@@ -1,1 +1,49 @@
-<p>view works!</p>
+<div class="container" *ngIf="deal">
+    <h1>View Deal</h1>
+
+    <a href="#" [routerLink]="['/deal/','index']" class="btn btn-primary"><i class="bi bi-caret-left"></i> Back</a>
+
+    <div>
+        <strong>slug:</strong>
+        <p>{{ deal.slug }}</p>
+    </div>
+
+    <div>
+        <strong>Name:</strong>
+        <p>{{ deal.name }}</p>
+    </div>
+
+    <div>
+        <strong>Video:</strong>
+        <p>{{ deal.video }}</p>
+    </div>
+
+    <h3>Hotels</h3>
+
+    <a href="#" routerLink="/hotel/create/" class="btn btn-success">Add <i class="bi bi-plus"></i></a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Rate</th>
+                <th>Amentites</th>
+                <th width="250px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let hotel of deal.hotels">
+                <td>{{ hotel.name }}</td>
+                <td>{{ hotel.rate }}</td>
+                <td>{{ hotel.amentites}}</td>
+                <td>
+                    <a href="#" [routerLink]="['/hotel/', hotel.id, 'edit']" class="btn btn-primary"><i
+                            class="bi bi-pencil"></i></a>
+                    <button type="button" (click)="deleteHotel(hotel.id)" class="btn btn-danger"><i
+                            class="bi bi-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
