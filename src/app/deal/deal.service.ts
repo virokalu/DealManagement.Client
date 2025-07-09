@@ -8,10 +8,10 @@ import { Deal } from './deal';
 })
 export class DealService {
 
-  private apiUrl = "https://localhost:7222/api/Deals";
+  private apiUrl = "https://localhost:7222/api/Deals/";
   httpOptions = {
     headers: new HttpHeaders({
-      'Context-Type': 'application/json'
+      'Content-Type': 'application/json'
     })
   }
 
@@ -19,48 +19,21 @@ export class DealService {
 
   getDeals(): Observable<Deal[]> {
     return this.httpClient.get<Deal[]>(this.apiUrl)
-      .pipe(
-        tap(_ => console.log('fetched heroes')),
-        catchError(this.errorHandler)
-      )
   }
 
   add(deal: Deal): Observable<any> {
-    return this.httpClient.put(this.apiUrl, JSON.stringify(deal), this.httpOptions)
-      .pipe(
-        catchError(this.errorHandler)
-      )
+    return this.httpClient.post(this.apiUrl, JSON.stringify(deal), this.httpOptions)
   }
 
   get(slug: string): Observable<any> {
     return this.httpClient.get(this.apiUrl + slug)
-      .pipe(
-        catchError(this.errorHandler)
-      )
   }
 
   update(slug: string, deal: Deal): Observable<any> {
     return this.httpClient.put(this.apiUrl + slug, JSON.stringify(deal), this.httpOptions)
-      .pipe(
-        catchError(this.errorHandler)
-      )
   }
 
   delete(slug:string):Observable<any>{
-    return this.httpClient.get(this.apiUrl + slug, this.httpOptions)
-      .pipe(
-        catchError(this.errorHandler)
-      )
-
-  }
-
-  errorHandler(error: any) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      errorMessage = error.error.message;
-    } else {
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    return throwError(()=>errorMessage);
+    return this.httpClient.delete(this.apiUrl + slug, this.httpOptions)
   }
 }
