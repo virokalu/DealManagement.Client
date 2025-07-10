@@ -55,7 +55,7 @@ ng serve
 
 ## 📁 Folder Structure
 
-```ruby
+```bash
 src/
 ├── app/
 │   ├── deal/                # Deal components and services
