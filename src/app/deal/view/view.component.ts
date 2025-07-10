@@ -7,10 +7,11 @@ import { NotificationService } from '../../shared/notification.service';
 import { catchError, EMPTY } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { HotelService } from '../../hotel/hotel.service';
+import { SafeUrlPipe } from '../../shared/safe-url.pipe';
 
 @Component({
   selector: 'app-view',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, SafeUrlPipe],
   templateUrl: './view.component.html',
   styleUrl: './view.component.css'
 })
@@ -27,6 +28,29 @@ export class ViewComponent {
     private errorHandler: ErrorHandlerService,
     private notification: NotificationService
   ) { }
+
+  getEmbedUrl(videoUrl: string): string {
+    if (!videoUrl) return '';
+
+    // For short URLs like https://youtu.be/1T6H0qGjL-E
+    if (videoUrl.includes('youtu.be/')) {
+      const id = videoUrl.split('youtu.be/')[1];
+      return `https://www.youtube.com/embed/${id}`;
+    }
+
+    // For normal URLs like https://youtube.com/watch?v=1T6H0qGjL-E
+    if (videoUrl.includes('watch?v=')) {
+      const id = videoUrl.split('watch?v=')[1];
+      return `https://www.youtube.com/embed/${id}`;
+    }
+
+    // Already embed format
+    if (videoUrl.includes('embed/')) {
+      return videoUrl;
+    }
+
+    return ''; // fallback
+  }
 
   ngOnInit(): void {
     this.slug = this.route.snapshot.params['slug'];

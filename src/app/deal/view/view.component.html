@@ -16,11 +16,15 @@
     <div>
         <strong>Video:</strong>
         <p>{{ deal.video }}</p>
+        <iframe [src]="getEmbedUrl(deal.video) | safeUrl" width="400" height="200" title="Video" frameborder="5"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 
     <h3>Hotels</h3>
 
-    <a href="#" [routerLink]="['/hotel/', deal.slug ,'create']" class="btn btn-success">Add <i class="bi bi-plus"></i></a>
+    <a href="#" [routerLink]="['/hotel/', deal.slug ,'create']" class="btn btn-success">Add <i
+            class="bi bi-plus"></i></a>
 
     <table class="table table-striped">
         <thead>
