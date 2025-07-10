@@ -35,6 +35,7 @@ export class EditComponent {
           console.log(error);
           var errors = this.errorHandler.extractErrors(error);
           this.notification.showError(errors)
+          this.router.navigateByUrl('deal/index');
           return EMPTY;
         }
       )

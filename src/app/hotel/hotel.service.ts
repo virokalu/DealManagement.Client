@@ -28,4 +28,9 @@ export class HotelService {
   delete(id: number): Observable<any> {
     return this.httpClient.delete(this.apiUrl + id, this.httpOptions)
   }
+  
+  get(id:number): Observable<any> {
+    return this.httpClient.get(this.apiUrl + id, this.httpOptions)
+  }
+
 }

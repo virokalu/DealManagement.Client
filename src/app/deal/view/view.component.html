@@ -35,7 +35,7 @@
             <tr *ngFor="let hotel of deal.hotels">
                 <td>{{ hotel.name }}</td>
                 <td>{{ hotel.rate }}</td>
-                <td>{{ hotel.amentites}}</td>
+                <td>{{ hotel.amenities}}</td>
                 <td>
                     <a href="#" [routerLink]="['/hotel/', hotel.id, 'edit']" class="btn btn-primary"><i
                             class="bi bi-pencil"></i></a>
