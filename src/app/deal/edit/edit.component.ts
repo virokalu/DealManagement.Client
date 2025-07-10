@@ -75,7 +75,7 @@ export class EditComponent {
       .subscribe({
         next: (res: any) => {
           this.notification.showSuccess('Deal updated successfully');
-          this.router.navigateByUrl('deal/index');
+          this.router.navigateByUrl('/deal/' + this.slug + '/view');
         }
       });
   }

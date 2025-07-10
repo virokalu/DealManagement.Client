@@ -81,9 +81,9 @@ export class CreateComponent {
       )
     )
     .subscribe({
-      next: () => {
+      next: (res) => {
         this.notification.showSuccess('Deal created successfully');
-        this.router.navigateByUrl('deal/index');
+        this.router.navigateByUrl('/deal/' + res.slug + '/view');
       }      
     });
   }
