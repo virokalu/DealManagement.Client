@@ -2,8 +2,6 @@
 
 Frontend application for managing deals and hotel of them. Consumes a backend Web API service to perform CRUD operations. The frontend is built using **Angular**, and the backend API is build using **ASP.NET Core Web API**.
 
----
-
 ## 🚀 Features
 
 - View deals
@@ -13,14 +11,10 @@ Frontend application for managing deals and hotel of them. Consumes a backend We
 - video support
 - Responsive layout using Bootstrap
 
----
-
 ## 🛠️ Technologies Used
 
 - Angular
 - Bootstrap
-
----
 
 ## 📦 Prerequisites
 
@@ -28,8 +22,6 @@ Frontend application for managing deals and hotel of them. Consumes a backend We
 - [Angular CLI](https://angular.io/cli) (v19)
 - [Git](https://git-scm.com/)
 - A running instance of the **Web API** backend
-
----
 
 ## 📥 Clone and Setup
 
