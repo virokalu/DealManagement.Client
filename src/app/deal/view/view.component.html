@@ -1,1 +1,67 @@
-<p>view works!</p>
+<div class="justify-content-center row" *ngIf="deal">
+    <div class="col-12 col-md-12 col-lg-10 col-xl-8">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>View Deal</h1>
+
+            <a href="#" [routerLink]="['/deal/','index']" class="btn btn-primary"><i class="bi bi-caret-left"></i>
+                Back</a>
+
+        </div>
+        <div class="mb-4">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="mb-4">
+                        <strong>Slug</strong>
+                        <p>{{ deal.slug }}</p>
+                    </div>
+
+                    <div>
+                        <strong>Name</strong>
+                        <p>{{ deal.name }}</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <iframe [src]="getEmbedUrl(deal.video) | safeUrl" width="400" height="240" title="Video"
+                        frameborder="5"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3>Hotels</h3>
+
+            <a href="#" [routerLink]="['/hotel/', deal.slug ,'create']" class="btn btn-success">Add <i
+                    class="bi bi-plus"></i></a>
+
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Rate</th>
+                    <th>Amentites</th>
+                    <th width="250px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let hotel of deal.hotels">
+                    <td>{{ hotel.name }}</td>
+                    <td>{{ hotel.rate }}</td>
+                    <td>{{ hotel.amenities}}</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a href="#" [routerLink]="['/hotel/', hotel.id, 'edit']" class="btn btn-primary"><i
+                                    class="bi bi-pencil"></i></a>
+                            <button type="button" (click)="deleteHotel(hotel.id)" class="btn btn-danger"><i
+                                    class="bi bi-trash"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

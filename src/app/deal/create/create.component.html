@@ -1,1 +1,78 @@
-<p>create works!</p>
+<div class="justify-content-center row">
+    <div class="col-12 col-md-12 col-lg-10 col-xl-8">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Create New Deal</h1>
+
+            <a href="#" [routerLink]="['/deal/','index']" class="btn btn-primary"><i class="bi bi-caret-left"></i>
+                Back</a>
+
+        </div>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+
+            <div class="col-12 col-md-10 col-lg-8 col-xl-6">
+                <div class="form-group mb-3">
+                    <label for="slug">Slug</label>
+                    <input formControlName="slug" id="slug" type="text" class="form-control">
+                    <div *ngIf="f['slug'].touched 
+              && f['slug'].invalid" class="alert alert-danger">
+                        <div *ngIf="f['slug'].errors 
+                && f['slug'].errors['required']">
+                            slug is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="body">Name</label>
+                    <input formControlName="name" id="name" type="text" class="form-control">
+                    <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+                        <div *ngIf="f['name'].errors && f['name'].errors['required']">
+                            Name is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="video">Video</label>
+                    <input formControlName="video" id="video" type="text" class="form-control">
+                    <div *ngIf="f['video'].touched && f['video'].invalid" class="alert alert-danger">
+                        <div *ngIf="f['video'].errors">
+                            Add a video link.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div formArrayName="hotels" class="border rounded p-3 mb-3 col-12 col-md-10 col-lg-8 col-xl-6">
+                <h5>Hotels</h5>
+                <div *ngFor="let hotel of hotels.controls; let i = index" [formGroupName]="i"
+                    class="mb-3 border-bottom pb-3">
+                    <div class="mb-3">
+                        <label>Hotel Name</label>
+                        <input formControlName="name" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Rate</label>
+                        <input type="number" formControlName="rate" class="form-control" />
+
+                    </div>
+                    <div class="mb-3">
+                        <label>Amenities (comma-separated)</label>
+                        <input formControlName="amenities" class="form-control" />
+                    </div>
+
+                    <button class="btn btn-danger btn-sm mt-2" (click)="removeHotel(i)" type="button"
+                        *ngIf="hotels.length > 1">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+
+                <button type="button" class="btn btn-secondary mt-2" (click)="addHotel()">Add Hotel <i
+                        class="bi bi-plus"></i></button>
+            </div>
+
+            <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit <i
+                    class="bi bi-send"></i></button>
+        </form>
+    </div>
+</div>

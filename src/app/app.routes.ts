@@ -1,13 +1,19 @@
 import { Routes } from '@angular/router';
+
 import { IndexComponent } from './deal/index/index.component';
 import { ViewComponent } from './deal/view/view.component';
 import { CreateComponent } from './deal/create/create.component';
 import { EditComponent } from './deal/edit/edit.component';
+import { EditHotelComponent } from './hotel/edit/edit.component';
+import { CreateHotelComponent } from './hotel/create/create.component';
 
 export const routes: Routes = [
-    { path: 'post', redirectTo: 'post/index', pathMatch: 'full'},
-    { path: 'post/index', component: IndexComponent },
-    { path: 'post/:postId/view', component: ViewComponent },
-    { path: 'post/create', component: CreateComponent },
-    { path: 'post/:postId/edit', component: EditComponent } 
+    { path: '', component: IndexComponent },
+    { path: 'deal/index', component: IndexComponent },
+    { path: 'deal/:slug/view', component: ViewComponent },
+    { path: 'deal/create', component: CreateComponent },
+    { path: 'deal/:slug/edit', component: EditComponent },
+    { path: 'hotel/:slug/create', component: CreateHotelComponent },
+    { path: 'hotel/:id/edit', component: EditHotelComponent },
+    { path: '**', redirectTo: '' }
 ];
